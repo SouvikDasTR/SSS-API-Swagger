@@ -1,0 +1,1773 @@
+{
+  "components" : {
+    "responses" : {
+      "ClientError" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Error"
+            }
+          }
+        },
+        "description" : "HTTP Client Error"
+      },
+      "ServerError" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Error"
+            }
+          }
+        },
+        "description" : "HTTP Server Error"
+      }
+    },
+    "schemas" : {
+      "APIKey" : {
+        "description" : "API AUTH",
+        "properties" : {
+          "UserID" : {
+            "default" : "some.email@thomsonreuters.com",
+            "description" : "some.email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "EAD" : {
+            "default" : "123456",
+            "description" : "employeeID",
+            "type" : "string"
+          },
+          "password" : {
+            "default" : "****",
+            "description" : "password",
+            "type" : "string"
+          }
+        },
+        "required" : [ "UserID", "EAD", "password" ],
+        "title" : "APIAuth",
+        "type" : "object"
+      },
+      "Create" : {
+        "description" : "Create a user",
+        "properties" : {
+          "email" : {
+            "default" : "jane.doe@thomsonreuters.com",
+            "description" : "jane.doe@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "DEV_READONLY_ROLE",
+            "description" : "DEV_READONLY_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "add",
+            "description" : "add",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action" ],
+        "title" : "Create",
+        "type" : "object"
+      },
+      "Create 2" : {
+        "description" : "Create a user",
+        "properties" : {
+          "email" : {
+            "default" : "billy.kid@thomsonreuters.com",
+            "description" : "billy.kid@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "DEV_READONLY_ROLE",
+            "description" : "DEV_READONLY_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "add",
+            "description" : "add",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action" ],
+        "title" : "Create",
+        "type" : "object"
+      },
+      "Create_role" : {
+        "description" : "Create a user",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "SOME_ROLE",
+            "description" : "SOME_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "create_role",
+            "description" : "create_role",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action" ],
+        "title" : "Create",
+        "type" : "object"
+      },
+      "Drop" : {
+        "description" : "Drop a user",
+        "properties" : {
+          "email" : {
+            "default" : "jane.doe@thomsonreuters.com",
+            "description" : "jane.doe@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "drop",
+            "description" : "drop",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action" ],
+        "title" : "Drop",
+        "type" : "object"
+      },
+      "Drop 2" : {
+        "description" : "Drop a user",
+        "properties" : {
+          "email" : {
+            "default" : "billy.kid@thomsonreuters.com",
+            "description" : "billy.kid@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "drop",
+            "description" : "drop",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action" ],
+        "title" : "Drop",
+        "type" : "object"
+      },
+      "Drop_role" : {
+        "description" : "Drop a role",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "SOME_ROLE",
+            "description" : "SOME_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "drop_role",
+            "description" : "drop_role",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action" ],
+        "title" : "Drop",
+        "type" : "object"
+      },
+      "Revoke" : {
+        "description" : "Revoke a role",
+        "properties" : {
+          "email" : {
+            "default" : "some.body@tr.com",
+            "description" : "some.body@tr.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "CDO_DEV_SYSADMIN",
+            "description" : "CDO_DEV_SYSADMIN",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "revoke",
+            "description" : "revoke",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action" ],
+        "title" : "Revoke",
+        "type" : "object"
+      },
+      "Grant" : {
+        "description" : "Grant a user",
+        "properties" : {
+          "email" : {
+            "default" : "jane.doe@thomsonreuters.com",
+            "description" : "jane.doe@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "QA_READONLY_ROLE",
+            "description" : "QA_READONLY_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "grant",
+            "description" : "grant",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action" ],
+        "title" : "Grant",
+        "type" : "object"
+      },
+      "Grant Role To Another Role" : {
+        "description" : "Grant a user",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "GRANT_THIS_ROLE",
+            "description" : "GRANT_THIS_ROLE",
+            "type" : "string"
+          },
+          "to_role" : {
+            "default" : "TO_THIS_ROLE",
+            "description" : "TO_THIS_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "grant_role_to_role",
+            "description" : "grant_role_to_role",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "to_role", "action" ],
+        "title" : "Grant Role To Another Role",
+        "type" : "object"
+      },
+      "Grant Privilege To Role" : {
+        "description" : "Grant a user",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "SOME_ROLE",
+            "description" : "SOME_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "grant_privilege",
+            "description" : "grant_privilege",
+            "type" : "string"
+          },
+          "object_type" : {
+            "default" : "DATABASE",
+            "description" : "DATABASE",
+            "type" : "string"
+          },
+          "object" : {
+            "default" : "SNOWFLAKE_OBJECT",
+            "description" : "SNOWFLAKE_OBJECT",
+            "type" : "string"
+          },
+          "privilege_type" : {
+            "default" : "USAGE",
+            "description" : "USAGE",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action", "object_type", "object", "privilege_type" ],
+        "title" : "Grant Privilege To Role",
+        "type" : "object"
+      },
+      "Grant Privilege To Role 2" : {
+        "description" : "Grant a user",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "SOME_ROLE",
+            "description" : "SOME_ROLE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "grant_privilege",
+            "description" : "grant_privilege",
+            "type" : "string"
+          },
+          "object_type" : {
+            "default" : "RM",
+            "description" : "RM",
+            "type" : "string"
+          },
+          "object" : {
+            "default" : "SOME_RESOURCE_MONITOR",
+            "description" : "SOME_RESOURCE_MONITOR",
+            "type" : "string"
+          },
+          "privilege_type" : {
+            "default" : "MONITOR",
+            "description" : "MONITOR",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action", "object_type", "object", "privilege_type" ],
+        "title" : "Grant Privilege To Role",
+        "type" : "object"
+      },
+      "Error" : {
+        "description" : "An error object",
+        "properties" : {
+          "code" : {
+            "description" : "HTTP status code",
+            "readOnly" : true,
+            "type" : "integer"
+          },
+          "message" : {
+            "items" : {
+              "description" : "Response message",
+              "readOnly" : true,
+              "type" : "string"
+            },
+            "readOnly" : true,
+            "type" : "array"
+          }
+        },
+        "title" : "Error",
+        "type" : "object"
+      },
+      "List_user_roles" : {
+        "description" : "List a user roles",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "user_roles",
+            "description" : "user_roles",
+            "type" : "string"
+          },
+          "created" : {
+            "description" : "Block creation timestamp",
+            "format" : "date-time",
+            "readOnly" : true,
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action" ],
+        "title" : "List_user_roles",
+        "type" : "object"
+      },
+      "PKI" : {
+        "description" : "Generate PKI for userss",
+        "properties" : {
+          "email" : {
+            "default" : "mike.brumfield@thomsonreuters.com",
+            "description" : "mike.brumfield@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "pki",
+            "description" : "pki",
+            "type" : "string"
+          },
+          "notifyByEmail" : {
+            "default" : "true",
+            "description" : "true",
+            "type" : "string"
+          },
+          "created" : {
+            "description" : "Block creation timestamp",
+            "format" : "date-time",
+            "readOnly" : true,
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action", "notifyByEmail" ],
+        "title" : "PKI",
+        "type" : "object"
+      },
+      "Revoke_PKI" : {
+        "description" : "Revoke PKI from user",
+        "properties" : {
+          "email" : {
+            "default" : "millard.fillmore@thomsonreuters.com",
+            "description" : "millard.fillmore@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "revoke_pki",
+            "description" : "revoke_pki",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action" ],
+        "title" : "PKI",
+        "type" : "object"
+      },
+      "Get_PKI" : {
+        "description" : "Get PKI information for users",
+        "properties" : {
+          "email" : {
+            "default" : "mike.brumfield@thomsonreuters.com",
+            "description" : "mike.brumfield@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "get_pki",
+            "description" : "get_pki",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action" ],
+        "title" : "PKI",
+        "type" : "object"
+      },
+      "Password" : {
+        "description" : "Set password for users",
+        "properties" : {
+          "email" : {
+            "default" : "mike.brumfield@thomsonreuters.com",
+            "description" : "mike.brumfield@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "password",
+            "description" : "password",
+            "type" : "string"
+          },
+          "notifyByEmail" : {
+            "default" : true,
+            "description" : "Boolean Value",
+            "type" : "boolean"
+          }
+        },
+        "required" : [ "email", "action", "notifyByEmail" ],
+        "title" : "Password",
+        "type" : "object"
+      },
+      "Get_passowrd" : {
+        "description" : "Get password of users",
+        "properties" : {
+          "email" : {
+            "default" : "mike.brumfield@thomsonreuters.com",
+            "description" : "mike.brumfield@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "get_password",
+            "description" : "get_password",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action" ],
+        "title" : "Password",
+        "type" : "object"
+      },
+      "Fail-Over" : {
+        "description" : "Fail over mechanism for db",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "fail_over",
+            "description" : "fail_over",
+            "type" : "string"
+          },
+          "dbname" : {
+            "default" : "DEMO_DR",
+            "description" : "DEMO_DR",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action", "dbname" ],
+        "title" : "Fail-Over/Fail-Back",
+        "type" : "object"
+      },
+      "Fail-Back" : {
+        "description" : "Fail back mechanism for db",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "fail_back",
+            "description" : "fail_back",
+            "type" : "string"
+          },
+          "dbname" : {
+            "default" : "DEMO_DR",
+            "description" : "DEMO_DR",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action", "dbname" ],
+        "title" : "Fail-Over/Fail-Back",
+        "type" : "object"
+      },
+      "Warehouse" : {
+        "description" : "Fail back mechanism for db",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "role_name",
+            "description" : "role_name",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "create_wh",
+            "description" : "create_wh",
+            "type" : "string"
+          },
+          "wh_name" : {
+            "default" : "test_wh",
+            "description" : "test_wh",
+            "type" : "string"
+          },
+          "wh_size" : {
+            "default" : "xsmall",
+            "description" : "xsmall",
+            "type" : "string"
+          },
+          "wh_type" : {
+            "default" : "standard",
+            "description" : "standard",
+            "type" : "string"
+          },
+          "auto_suspend" : {
+            "default" : "600",
+            "description" : "600",
+            "type" : "string"
+          },
+          "auto_resume" : {
+            "default" : "true",
+            "description" : "ture",
+            "type" : "boolean"
+          },
+          "min_cluster_count" : {
+            "default" : "1",
+            "description" : "1",
+            "type" : "integer"
+          },
+          "maz_cluster_count" : {
+            "default" : "1",
+            "description" : "1",
+            "type" : "integer"
+          },
+          "scaling_policy" : {
+            "default" : "standard",
+            "description" : "standard",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "role", "action", "wh_name", "wh_size", "wh_type", "auto_suspend", "auto_resume", "min_cluster_count", "max_cluster_count", "scaling_policy" ],
+        "title" : "Warehouse",
+        "type" : "object"
+      },
+      "Drop_warehouse" : {
+        "description" : "Drop a warehouse",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "warehouse" : {
+            "default" : "SOME_WAREHOUSE",
+            "description" : "SOME_WAREHOUSE",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "drop_wh",
+            "description" : "drop_wh",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "warehouse", "action" ],
+        "title" : "Warehouse",
+        "type" : "object"
+      },
+      "Create_schema" : {
+        "description" : "Create a schema",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "role_name",
+            "description" : "role_name",
+            "type" : "string"
+          },
+          "database" : {
+            "default" : "database_name",
+            "description" : "database_name",
+            "type" : "string"
+          },
+          "schema_name" : {
+            "default" : "schema_name",
+            "description" : "schema_name",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "create_schema",
+            "description" : "create_schema",
+            "type" : "string"
+          },
+          "managed_access" : {
+            "default" : true,
+            "description" : "Boolean value",
+            "type" : "boolean"
+          }
+        },
+        "required" : [ "email", "role", "database", "schema_name", "action", "managed_access" ],
+        "title" : "Create_Drop_Schema",
+        "type" : "object"
+      },
+      "Drop_schema" : {
+        "description" : "Drop a schema",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "schema_name" : {
+            "default" : "schema_name",
+            "description" : "schema_name",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "drop_schema",
+            "description" : "drop_schema",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "schema_name", "action" ],
+        "title" : "Create_Drop_Schema",
+        "type" : "object"
+      },
+      "Create RM" : {
+        "description" : "Create a resource monitor",
+        "properties" : {
+          "email" : {
+            "default" : "your_email@thomsonreuters.com",
+            "description" : "your_email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "rm_name" : {
+            "default" : "unique_resourcemonitor_name",
+            "description" : "unique_resourcemonitor_name",
+            "type" : "string"
+          },
+          "wh_name" : {
+            "default" : "your_warehouse",
+            "description" : "your_warehouse",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "create_rm",
+            "description" : "create_rm",
+            "type" : "string"
+          },
+          "credit_quota" : {
+            "default" : "30",
+            "description" : "integer value",
+            "type" : "integer"
+          },
+          "frequency" : {
+            "default" : "monthly",
+            "description" : "monthly",
+            "type" : "string"
+          },
+          "start_timestamp" : {
+            "default" : "immediately",
+            "description" : "timestamp",
+            "type" : "string"
+          },
+          "triggers" : {
+            "default" : "triggers on 80 percent do notify on 100 percent do suspend",
+            "description" : "triggers on 80 percent do notify on 100 percent do suspend",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "rm_name", "wh_name", "action", "credit_quota", "frequency", "start_timestamp", "triggers" ],
+        "title" : "Resource Monitor",
+        "type" : "object"
+      },
+      "Drop RM" : {
+        "description" : "Drop a resource monitor",
+        "properties" : {
+          "email" : {
+            "default" : "random.human@thomsonreuters.com",
+            "description" : "random.human@thomsonreuters.com",
+            "type" : "string"
+          },
+          "rm_name" : {
+            "default" : "unique_resourcemonitor_name",
+            "description" : "unique_resourcemonitor_name",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "drop_rm",
+            "description" : "drop_rm",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "rm_name", "action" ],
+        "title" : "Resource Monitor",
+        "type" : "object"
+      },
+      "Modify RM" : {
+        "description" : "Create a resource monitor",
+        "properties" : {
+          "email" : {
+            "default" : "mike.brumfield@thomsonreuters.com",
+            "description" : "mike.brumfield@thomsonreuters.com",
+            "type" : "string"
+          },
+          "rm_name" : {
+            "default" : "ihn_test_rm",
+            "description" : "ihn_test_rm",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "modify_rm",
+            "description" : "modify_rm",
+            "type" : "string"
+          },
+          "credit_quota" : {
+            "default" : "20",
+            "description" : "integer value",
+            "type" : "integer"
+          },
+          "frequency" : {
+            "default" : "MONTHLY",
+            "description" : "MONTHLY",
+            "type" : "string"
+          },
+          "start_timestamp" : {
+            "default" : "IMMIDIATELY",
+            "description" : "timestamp",
+            "type" : "string"
+          },
+          "triggers" : {
+            "default" : "triggers on 80 percent do notify on 100 percent do suspend",
+            "description" : "triggers on 80 percent do notify on 100 percent do suspend",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "rm_name", "action", "credit_quota", "frequency", "start_timestamp", "triggers" ],
+        "title" : "Resource Monitor",
+        "type" : "object"
+      },
+      "Add Service Account" : {
+        "description" : "Adding a service account user",
+        "properties" : {
+          "email" : {
+            "default" : "prabhdeep.jammu@thomsonreuters.com",
+            "description" : "prabhdeep.jammu@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "add_svc_account",
+            "description" : "add_svc_account",
+            "type" : "string"
+          },
+          "role" : {
+            "default" : "some_role",
+            "description" : "role",
+            "type" : "string"
+          },
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "comment" : {
+            "default" : "backup.email@tr.com",
+            "description" : "backup.email@tr.com",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action", "role", "svc_account", "comment" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Generate key-pair for Service Account" : {
+        "description" : "Adding a service account user",
+        "properties" : {
+          "email" : {
+            "default" : "prabhdeep.jammu@thomsonreuters.com",
+            "description" : "prabhdeep.jammu@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "pki_svc_account",
+            "description" : "pki_svc_account",
+            "type" : "string"
+          },
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "notifyByEmail" : {
+            "default" : true,
+            "description" : "ture/false",
+            "type" : "Boolean Value"
+          }
+        },
+        "required" : [ "email", "action", "svc_account", "notifyByEmail" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Generate password for Service Account" : {
+        "description" : "Adding a service account user",
+        "properties" : {
+          "email" : {
+            "default" : "prabhdeep.jammu@thomsonreuters.com",
+            "description" : "prabhdeep.jammu@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "password_svc_account",
+            "description" : "password_svc_account",
+            "type" : "string"
+          },
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "notifyByEmail" : {
+            "default" : true,
+            "description" : "ture/false",
+            "type" : "Boolean Value"
+          }
+        },
+        "required" : [ "email", "action", "svc_account", "notifyByEmail" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Get password for service account user" : {
+        "description" : "Getting password for service account user",
+        "properties" : {
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "get_password_svc_account",
+            "description" : "get_password_svc_account",
+            "type" : "string"
+          }
+        },
+        "required" : [ "svc_account", "action" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Get private key and passphrase for service account user" : {
+        "description" : "Getting private key for service account user",
+        "properties" : {
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "get_pki_svc_account",
+            "description" : "get_pki_svc_account",
+            "type" : "string"
+          }
+        },
+        "required" : [ "svc_account", "action" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Refresh key-pair for service account user" : {
+        "description" : "Refresh private key for service account user",
+        "properties" : {
+          "email" : {
+            "default" : "prabhdeep.jammu@thomsonreuters.com",
+            "description" : "prabhdeep.jammu@thomsonreuters.com",
+            "type" : "string"
+          },
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "refresh_pki_svc_account",
+            "description" : "refresh_pki_svc_account",
+            "type" : "string"
+          },
+          "notifyByEmail" : {
+            "default" : true,
+            "description" : "ture/false",
+            "type" : "Boolean Value"
+          }
+        },
+        "required" : [ "email", "svc_account", "action", "notifyByEmail" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "List Roles Granted to Service Account" : {
+        "description" : "List roles for service account user",
+        "properties" : {
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "user_roles_svc_account",
+            "description" : "user_roles_svc_account",
+            "type" : "string"
+          }
+        },
+        "required" : [ "svc_account", "action" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Grant Role to Service Account" : {
+        "description" : "List roles for service account user",
+        "properties" : {
+          "svc_sccount" : {
+            "default" : "some_service_account",
+            "description" : "some_service_account",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "user_roles_svc_account",
+            "description" : "user_roles_svc_account",
+            "type" : "string"
+          }
+        },
+        "required" : [ "svc_account", "action" ],
+        "title" : "Service Account Users",
+        "type" : "object"
+      },
+      "Multiple Action1" : {
+        "description" : "Perform multiple action",
+        "properties" : {
+          "email" : {
+            "default" : "some.email@thomsonreuters.com",
+            "description" : "some.email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "action1",
+            "description" : "some action",
+            "type" : "string"
+          },
+          "parameter1" : {
+            "default" : "some_parameter",
+            "description" : "some_parameter",
+            "type" : "string"
+          },
+          "parameter2" : {
+            "default" : "some_parameter",
+            "description" : "some_parameter",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action", "parameter1", "parameter2" ],
+        "title" : "Multiple Actions",
+        "type" : "object"
+      },
+      "Multiple Action2" : {
+        "description" : "Perform multiple action",
+        "properties" : {
+          "email" : {
+            "default" : "some.email@thomsonreuters.com",
+            "description" : "some.email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "action" : {
+            "default" : "action2",
+            "description" : "some action",
+            "type" : "string"
+          },
+          "parameter1" : {
+            "default" : "some_parameter",
+            "description" : "some_parameter",
+            "type" : "string"
+          },
+          "parameter2" : {
+            "default" : "some_parameter",
+            "description" : "some_parameter",
+            "type" : "string"
+          }
+        },
+        "required" : [ "email", "action", "parameter1", "parameter2" ],
+        "title" : "Multiple Actions",
+        "type" : "object"
+      },
+      "Body Action1" : {
+        "description" : "Perform body action",
+        "properties" : {
+          "action" : {
+            "default" : "action2",
+            "description" : "some action",
+            "type" : "string"
+          },
+          "email" : {
+            "default" : "some.email@thomsonreuters.com",
+            "description" : "some.email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "status" : {
+            "default" : "success",
+            "description" : "success/failure",
+            "type" : "string"
+          },
+          "bosy" : {
+            "default" : "success",
+            "description" : "success/failure",
+            "type" : "string"
+          },
+          "httpResponse" : {
+            "default" : "200",
+            "description" : "Response code",
+            "type" : "integer"
+          }
+        },
+        "required" : [ "action", "email", "status", "body", "httpResponse" ],
+        "title" : "Body",
+        "type" : "object"
+      },
+      "Body Action2" : {
+        "description" : "Perform body action",
+        "properties" : {
+          "action" : {
+            "default" : "action2",
+            "description" : "some action",
+            "type" : "string"
+          },
+          "email" : {
+            "default" : "some.email@thomsonreuters.com",
+            "description" : "some.email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "status" : {
+            "default" : "success",
+            "description" : "success/failure",
+            "type" : "string"
+          },
+          "bosy" : {
+            "default" : "success",
+            "description" : "success/failure",
+            "type" : "string"
+          },
+          "httpResponse" : {
+            "default" : "200",
+            "description" : "Response code",
+            "type" : "integer"
+          }
+        },
+        "required" : [ "action", "email", "status", "body", "httpResponse" ],
+        "title" : "Body",
+        "type" : "object"
+      },
+      "Body Action3" : {
+        "description" : "Perform body action",
+        "properties" : {
+          "action" : {
+            "default" : "action2",
+            "description" : "some action",
+            "type" : "string"
+          },
+          "email" : {
+            "default" : "some.email@thomsonreuters.com",
+            "description" : "some.email@thomsonreuters.com",
+            "type" : "string"
+          },
+          "status" : {
+            "default" : "success",
+            "description" : "success/failure",
+            "type" : "string"
+          },
+          "bosy" : {
+            "default" : "fail",
+            "description" : "success/failure",
+            "type" : "string"
+          },
+          "httpResponse" : {
+            "default" : "500",
+            "description" : "Response code",
+            "type" : "integer"
+          }
+        },
+        "required" : [ "action", "email", "status", "body", "httpResponse" ],
+        "title" : "Body",
+        "type" : "object"
+      }
+    }
+  },
+  "consumes" : [ "application/json" ],
+  "externalDocs" : {
+    "description" : "",
+    "url" : ""
+  },
+  "info" : {
+    "contact" : {
+      "name" : "",
+      "url" : ""
+    },
+    "description" : "\n***\n\n <H2>**Overview**</H2>\n\nThis document describes the Snowflake self-service API. This API can be used by snowflake customers to provision their own users for databases they have been delegated admin rights to. The API allows for creation of users, assigning their default role, and dropping users.  Snowflake system roles are blacklisted and attempting to assign them to a user will cause a request error.\n\n We deployed v2.0.0 of our API on 11/08/2021 under [CHG0985625](https://urldefense.com/v3/__https:/thomsonreuters.service-now.com/nav_to.do?uri=%2a2fchange_request.do%2a3Fsys_id%2a3Da1654db187e7b8146d6b32ed3fbb35aa%2a26sysparm_view%2a3D%2a26sysparm_domain%2a3Dnull%2a26sysparm_domain_scope%2a3Dnull__%3bJSUlJSUlJSUl%21%21GFN0sa3rsbfR8OLyAw%21NNhqjC4msMH4Ulv_ShTIrSSG5UNkYXFq-a1uxA6Hu85pblrf6kHL5eQlJ-6jHp1uWbG8IxZuhQ$) \n\n v2.0.0 of the API contains major changes and so we are supporting both v1.0.0 and v2.0.0 concurrently until **Dec 6th, 2021**\n\n We will shut down v1.0.0 of the API on **Dec 6th, 2021**\n\n <H2>API Invoke URL</H2> \n\n **v1.0.0** \n\n  of the self-service API is provisioned via AWS API Gateway. While it is expected that the invocation URL will be fairly durable, it can always be pulled from the SSM Parameter Store to ensure code doesn't break if the API is re-deployed. \n\n **v2.0.0** of the self-service API uses the below endpoint for all requests for all environments:\n\n ```https://a207838-sss-api.8528.aws-int.thomsonreuters.com```\n\n <H2>**Python prerequisites**</H2>\n\n **Note: It is assumed that you have Python 3 installed, and have also installed PIP**\n\n ```wget http://bootstrap.pypa.io/get-pip.py ```\n\n ``` python ./get-pip.py```\n\n **Install boto3** \n\n```pip install boto3``` \n\n\n <H2> API KEYS</H2> \n\n Business unit delegated admins will receive an API key. This API key needs to be included with all API requests.\n\n <H2> User API</H2>",
+    "title" : "Snowflake Self-Service API",
+    "version" : "2.0.0"
+  },
+  "openapi" : "3.0.2",
+  "paths" : {
+    "/api/v3/" : { },
+    "/api/v3/create/{code}" : { },
+    "/" : {
+      "post" : {
+        "description" : "To create a user you need to specify their email address and the role that you want them to have.  This role must already exist.  Create operations are idempotent, as they use the snowflake \"CREATE IF NOT EXISTS\" syntax. \n\n **Note:** These actions are intended for end-user human accounts. Please navigate to the Service Account Users section to see the actions available for Service Account Users.\n\n",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "description" : "",
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "oneOf" : [ {
+                    "$ref" : "#/components/schemas/Create"
+                  }, {
+                    "$ref" : "#/components/schemas/Create 2"
+                  } ]
+                }
+              }
+            }
+          },
+          "description" : "A JSON body object for creating User role"
+        },
+        "summary" : "Create a user",
+        "tags" : [ "Create" ]
+      }
+    },
+    "DROP" : {
+      "post" : {
+        "description" : "To drop a user, simply include the API key and email to be dropped. Drop operations are idempotent, as they use the snowflake \"DROP IF EXISTS\" syntax. The API expects a list, so batch operations can be performed if desired.\n\n",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "description" : "Drop a user",
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "oneOf" : [ {
+                    "$ref" : "#/components/schemas/Drop"
+                  }, {
+                    "$ref" : "#/components/schemas/Drop 2"
+                  } ]
+                }
+              }
+            }
+          },
+          "description" : "A JSON body object to drop a user"
+        },
+        "summary" : "",
+        "tags" : [ "Drop" ]
+      }
+    },
+    "Grant User" : {
+      "post" : {
+        "description" : "Adds additional role grants to users.  Does not change the default role which is set to the role specified in the \"add\" action.\n\n",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON body object to granting user permissions",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Grant"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Grant" ]
+      }
+    },
+    "Grant Role To Another Role" : {
+      "post" : {
+        "description" : "Adds additional role grants to users. Does not change the default role which is set to the role specified in the \"add\" action.\n\n Note that you may not grant the reserved Snowflake Administrator roles to another role using this function.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for granting role to another user",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Grant Role To Another Role"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Grant" ]
+      }
+    },
+    "Grant Privilege To Role" : {
+      "post" : {
+        "description" : "Grant an object-specific privilege (such as \"operate\" or \"usage\") on the specified object type to the specified role. For example, grant usage on database to role BU_SYSADMIN; to allow members of that role to select objects within that database. See [GRANT … TO ROLE — Snowflake Documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege.html)  for more information.\n\n **Note:** This function is limited to ONLY allow privilege_type \"usage\" for object_type \"database\" and privilege_type \"monitor\" for object_type \"rm\" (\"rm\" for resource monitor). We may expand this API endpoint's functionality later on as needed.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for granting privilege to a role",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "$ref" : "#/components/schemas/Grant Privilege To Role"
+              }, {
+                "$ref" : "#/components/schemas/Grant Privilege To Role 2"
+              } ]
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Grant" ]
+      }
+    },
+    "Create Role" : {
+      "post" : {
+        "description" : "Create a new role. You should run the \"Grant Role to another Role\" function after this to (in most cases) the BU_SYSADMIN role to ensure proper maintenance and ownership hierarchy.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for creating a role",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Create_role"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Create" ]
+      }
+    },
+    "Drop_role" : {
+      "post" : {
+        "description" : "Drop a role. **Note:** Note that you may not drop the reserved Snowflake Administrator roles using this function.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "description" : "",
+              "schema" : {
+                "$ref" : "#/components/schemas/Drop_role"
+              }
+            }
+          },
+          "description" : "A JSON object for dropping a role"
+        },
+        "summary" : "",
+        "tags" : [ "Drop" ]
+      }
+    },
+    "Revoke" : {
+      "post" : {
+        "description" : "Revokes a role from a user.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for revoking a role from user",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Revoke"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Revoke" ]
+      }
+    },
+    "Returns a list of roles granted to a user." : {
+      "post" : {
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/List_user_roles"
+            }
+          },
+          "description" : "\n\nExample output. \n\n```\n$ ./selfServe.py --apikey xPi0zqqs9A5hEXNjztoOP99dI3o1u0U33zo2jH84 --env uat --json role.json \nINFO:root:starting \nINFO:root:url: https://2kpi6yosn3.execute-api.us-east-1.amazonaws.com/uat/user \nsuccess \n['CDO_UAT_SYSADMIN', 'PROD_DELIVERY_TOT_READ_ROLE']```"
+        } ],
+        "summary" : "",
+        "tags" : [ "List_user_roles" ]
+      }
+    },
+    "PKI" : {
+      "post" : {
+        "description" : "The PKI action will setup public key authentication for a snowflake user.  A keypair will be generated with the public key set for the user in snowflake and the private key and passphrase emailed directly to the user. The notifyByEmail field signifies if the user should be notified at rotation time.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for generating PKI",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PKI"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "PKI" ]
+      }
+    },
+    "Revoke_PKI" : {
+      "post" : {
+        "description" : "The revoke_pki action will set a user's public key to null. This will prevent them from running automated clients against snowflake and restrict them to UI interaction only.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for revoking PKI",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Revoke_PKI"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "PKI" ]
+      }
+    },
+    "Get_PKI" : {
+      "post" : {
+        "description" : "The get_pki action will fetch a user's private key and key passphrase from secrets manager and write it to a file on your system. This can be used to retrieve the private key if you lose it.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for obtaining PKI",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Get_PKI"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "PKI" ]
+      }
+    },
+    "Password" : {
+      "post" : {
+        "description" : "The password action will set a user's basic password to a new, randomly generated password and store the password in AWS secrets manager. The notifyByEmail field signifies if the user should be notified at rotation time.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for setting user password",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Password"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Password" ]
+      }
+    },
+    "Get_passowrd" : {
+      "post" : {
+        "description" : "The get_password action will fetch a user's basic password from secrets manager and display it on the console. This can be used to retrieve the password if you lose it.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for obtaining user password",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Get_passowrd"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Password" ]
+      }
+    },
+    "Fail-Over/Fail-Back" : {
+      "post" : {
+        "description" : "Fail_over/ fail_back any database, mention the database and action to be performed in the JSON file as below. Also mention the API Key provided along with the env variable \"dr\" while executing the ./selfServe.py.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Fail-over of database",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "$ref" : "#/components/schemas/Fail-Over"
+              }, {
+                "$ref" : "#/components/schemas/Fail-Back"
+              } ]
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Fail-Over/Fail-Back" ]
+      }
+    },
+    "Warehouse" : {
+      "post" : {
+        "description" : "Create a warehouse. \n\n We recommend speaking with the Big Data team before changing the size, type, auto_suspend, auto_resume, min_cluster_count, max_cluster_count, or scaling_policy settings.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for creating a warehouse",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Warehouse"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Warehouse" ]
+      }
+    },
+    "Drop_warehouse" : {
+      "post" : {
+        "description" : "Drop a compute warehouse.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for dropping a warehouse",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Drop_warehouse"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Warehouse" ]
+      }
+    },
+    "Create_schema" : {
+      "post" : {
+        "description" : "Create a new Schema within the specified database. You must specify the database where the schema will be created, and the role which should have ownership of the schema. \n\n **Note:** This function will not allow you to operate within reserved Snowflake Databases(ADMIN or SNOWFLAKE), or reserved Snowflake Schemas (INFORMATION_SCHEMA or PUBLIC)",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for creating a warehouse",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Create_schema"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Schema" ]
+      }
+    },
+    "Drop_schema" : {
+      "post" : {
+        "description" : "Drop a Schema if it exists. \n\n **Note:** This function will not allow you to operate within reserved Snowflake Databases(ADMIN or SNOWFLAKE), or reserved Snowflake Schemas (INFORMATION_SCHEMA or PUBLIC)",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for dropping a schema",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Drop_schema"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Schema" ]
+      }
+    },
+    "Create RM" : {
+      "post" : {
+        "description" : "To create a [resource monitor](https://docs.snowflake.com/en/sql-reference/sql/create-resource-monitor.html). \n\n You must have already created a warehouse, otherwise the request will fail. Resource Monitor names must be unique; I recommend using a prefix for all resource monitor names. Also, please note that there is currently no way to notify end users based on resource monitors only the Big Data team will receive the e-mail notifications and will pass these along to you manually. \n\n We recommend you use the template settings as defaults, and change only e-mail, rm_name, and wh_name to fit your needs. Suggest referring to the Snowflake documentation if you have interest to change the other parameters. \n\n Note: Only the ACCOUNTADMIN or SYSADMIN role may view resource monitors. In order to unassign a resource monitor from a warehouse, simply drop the resource monitor. If you run this operation more than once, the resource monitor definition will be overwritten.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for creating a Resource Manager",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Create RM"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Resource Monitor" ]
+      }
+    },
+    "Drop RM" : {
+      "post" : {
+        "description" : "To drop a resource monitor, simply include the API key, your e-mail for tracking purposes, and the resource monitor to be dropped. Drop operations are idempotent, as they use the snowflake \"DROP IF EXISTS\" syntax. If the resource monitor was assigned to a warehouse, that warehouse will no longer have a resource monitor assigned.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for dr a warehouse",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Drop RM"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Resource Monitor" ]
+      }
+    },
+    "Modify RM" : {
+      "post" : {
+        "description" : "To modify a resource monitor, simply include the API key, the name of the resource monitor and all of the following properties with appropriate values: rm_name, action, credit_quota, frequency, start_timestamp. The specified resource monitor must exist or the action will fail. All of the mentioned properties must be defined or the action will fail.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for dr a warehouse",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Modify RM"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Resource Monitor" ]
+      }
+    },
+    "Add Service Account" : {
+      "post" : {
+        "description" : "To create a user for a service account, use the “add_svc_account” action. This action requires the following parameters: \n\n **action:** Parameter describing the name of the action. \n\n **role:** The default role assigned to the new user. **NOTE:** This role must exist in the relevant Snowflake account. \n\n **svc_account:** The name of the service account  \n\n **email:** The e-mail account connected to this service account. This e-mail account will be used for managing communication related to the service account.  \n\n **comment:** Please enter a backup e-mail account or a DL (distribution list) e.g.[BIGDATA-TR@thomsonreuters.com](mailto:BIGDATA-TR@thomsonreuters.com)",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for adding a service account",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Add Service Account"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Service Account Users" ]
+      }
+    },
+    "Generate key-pair for Service Account" : {
+      "post" : {
+        "description" : "The “pki_svc_account” action will setup public key authentication for a snowflake service user.  A keypair will be generated with the public key set for the user in snowflake and the private key and passphrase emailed directly to the user. The action requires user to specify an email address where the private key and passphrase will be emailed to.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for generating a key-pair for service account",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Generate key-pair for Service Account"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Service Account Users" ]
+      }
+    },
+    "Generate password for Service Account" : {
+      "post" : {
+        "description" : "The “password_svc_account” action will set a service account user's basic password to a new, randomly generated password and store the password in AWS secrets manager.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for generating password for service account",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Generate password for Service Account"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Service Account Users" ]
+      }
+    },
+    "Get password for service account user" : {
+      "post" : {
+        "description" : "The “get_password_svc_account” action will fetch a user's basic password from secrets manager and display it on the console. This can be used to retrieve the password if you lose it. It requires two parameters: the service account name and the action itself.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for obtaining password for service account",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Get password for service account user"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Service Account Users" ]
+      }
+    },
+    "Get private key and passphrase for service account user" : {
+      "post" : {
+        "description" : "The “get_pki” action will fetch a user's private key and key passphrase from secrets manager and write it to a file on your system. This can be used to retrieve the private key if you lose it. It requires two parameters: the service account name and the action itself.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for obatining prvate key and passphrase for service account",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Get private key and passphrase for service account user"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Service Account Users" ]
+      }
+    },
+    "Refresh key-pair for service account user" : {
+      "post" : {
+        "description" : "This action is used to generate and setup a new key-pair for authentication for the service account user. A new keypair will be generated with the public key set for the user in snowflake and the private key and passphrase emailed directly to the user. **NOTE:** Use action “pki_svc_account” (see above) if setting up key-pair authentication for the first time for the service account user.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for refreshing key-pair for service account user",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Refresh key-pair for service account user"
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "Service Account Users" ]
+      }
+    },
+    "Multiple Actions" : {
+      "post" : {
+        "description" : "The API allows users to submit multiple actions in a single API call. Simply write an array with each item describing the details for each action in the JSON file. \n\n **Note:** The execution stops as soon as an action fails. The rest of the actions are discarded and not processed.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON object for performing multiple actions",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "$ref" : "#/components/schemas/Multiple Action1"
+              }, {
+                "$ref" : "#/components/schemas/Multiple Action2"
+              } ]
+            }
+          }
+        } ],
+        "summary" : "",
+        "tags" : [ "API Return Information" ]
+      }
+    },
+    "Status Code" : {
+      "post" : {
+        "description" : "The API returns an overall status code of all the actions submitted in the call. If all the actions were successfully executed, this will return a 200 code. If even one of the actions failed, the status code returned will be 500.",
+        "summary" : "",
+        "tags" : [ "Status Code" ]
+      }
+    },
+    "Body" : {
+      "post" : {
+        "description" : "The body (as shown below) is an array that contains details about all the actions submitted. Every item in the array will contain the following: \n\n **'action'**: The name of the action. \n\n **'email'**: The email submitted with the action (in case of a service account related action, this key will be 'service_account') \n\n **'status'**: Status of the specific action. 'success' in case action executed successfully and 'fail' when there's a failure. \n\n **'body'**: In case of failure, the reason for the error will be returned in this key. In case of success, if data needs to be returned (as is the case for \"get_pki\" action), this key will contain the data, otherwise this key will contain a generic \"success\" message. \n\n **'httpresponse'**: 200 for success and 500 for failure.",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "A JSON body object for multiple actions",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "$ref" : "#/components/schemas/Body Action1"
+              }, {
+                "$ref" : "#/components/schemas/Body Action2"
+              }, {
+                "$ref" : "#/components/schemas/Body Action3"
+              } ]
+            }
+          }
+        } ],
+        "tryItOutEnabled" : [ ],
+        "summary" : "",
+        "tags" : [ "Body" ]
+      }
+    },
+    "API CLient Examples" : {
+      "post" : {
+        "description" : "You can use the API in your own code as described in the examples above, or you can use the attached API client.  \n\n It expects your API key, environment and a file with a JSON payload formatted as described above.  If all your actions in the request succeed, it will simply display a generic 'success' message and then detail about each action submitted: \n\n ```bash-4.2# python3 ./selfServe.py --user '${USERNAME}:${PASSWORD}' --env poc --json test.json\nINFO:root:starting\nINFO:root:url: https://snej3bsfb6.execute-api.us-east-1.amazonaws.com/dev/user\nAPI call(s) executed successfully.\n{'action': 'user_roles', 'email': 'prabhdeep.jammu@thomsonreuters.com', 'status': 'success', 'body': 'ACCOUNTADMIN'], ['PJ_SYSADMIN'], ['SYSADMIN', 'httpResponse': 200}\n{'action': 'user_roles', 'email': 'mike.brumfield@thomsonreuters.com', 'status': 'success', 'body': 'ACCOUNTADMIN'], ['CDO_MAB_SYSADMIN'], ['SYSADMIN', 'httpResponse': 200} \n```  \n\n (**Note:** Please wrap your credentials in escape characters if using the API in a unix environment as follows: --user \\'${USERNAME}:${PASSWORD}\\'): \n\n If your request fails, it will provide the error code, the failing SQL statement and the error message. If your payload contained a batch, the SQL statement will tell you which statement failed and because adds and drops are essentially idempotent you can fix the problem record and re-submit the same payload.  If you can't fix the error, for MVP support you can contact [Jeremy Ulstad](https://thehub.thomsonreuters.com/people/0016880). \n\n ```bash-4.2# python3 ./selfServe.py --user '${USERNAME}:${PASSWORD}'--env poc --json test.json \nINFO:root:starting \nINFO:root:url: https://snej3bsfb6.execute-api.us-east-1.amazonaws.com/dev/user \nOne or more API calls failed to execute.\n{'action': 'user_roles', 'email': 'prabhdeep.jammu@thomsonreuters.com', 'status': 'success', 'body': 'ACCOUNTADMIN'], ['PJ_SYSADMIN'], ['SYSADMIN', 'httpResponse': 200}\n{'action': 'user_roles', 'email': 'wrong.user@thomsonreuters.com', 'status': 'fail', 'body': '002003 (02000): SQL compilation error:\nUser \\'\"wrong.user@thomsonreuters.com\"\\' does not exist or not authorized.', 'httpResponse': 500} \n```",
+        "summary" : "",
+        "tags" : [ "API CLIENT Examples" ]
+      }
+    },
+    "Feature Requests and Known Bugs" : {
+      "post" : {
+        "description" : "This section is meant to track outstanding feature requests and known issues with the Snowflake Self Service API. Please add comments to this document using the \"Comment\" Feature, and we'll track requests and issues, and their status, in this section. \n\n \n\n| Title | ADO Link | ETA | Resolved? |\n|-----|-----|-------|------|\n| Provision PKI Secret access automatically   | [https://dev.azure.com/tr-ihn/Data%20Services/_workitems/edit/106340](https://dev.azure.com/tr-ihn/Data%20Services/_workitems/edit/106340)    | 10/01/21   | No   |",
+        "summary" : "",
+        "tags" : [ "Feature Requests and Known Bugs" ]
+      }
+    },
+    "/api/v3/{path}" : { }
+  },
+  "produces" : [ "application/json" ],
+  "tryItOutEnabled" : false
+}
